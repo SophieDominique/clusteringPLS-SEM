@@ -12,7 +12,7 @@ rebusPLS <- function(data, pls_matrix, wscheme, nb_LV, nb_MV, tol = 1e-5, iter.p
   #-----------------------------------------------------------------------------
   #-----------------------------------------------------------------------------
   # PLSPM on all individuals
-  source("algo_lohmoller.R") #own function
+  # source("algo_lohmoller.R") #own function
   
   N = nrow(X)
   res_pls = lohmProc(X, pls_matrix, "A", wscheme, nb_LV, nb_MV, tol, iter.pls)
