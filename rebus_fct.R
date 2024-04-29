@@ -5,10 +5,10 @@ rebusPLS <- function(data, pls_matrix, wscheme, nb_LV, nb_MV, tol = 1e-5, iter.p
                      iter = 100, stop.crit = 0.05, nb_cluster = -1)
 {
   #-----------------------------------------------------------------------------
-  # attention pls_matrix doit etre une matrice triangulaire inferieure
+  # pls_matrix must be a lower triangular matrix
   # there is no choice of the mode because rebus-pls method is only available 
   # when all blocks are in mode A
-  # nb_cluster = -1 : definition automatique du nb de classe pour la CAH
+  # nb_cluster = -1 : automatic selection of the number of classes from the CAH
   #-----------------------------------------------------------------------------
   #-----------------------------------------------------------------------------
   # PLSPM on all individuals
@@ -136,7 +136,7 @@ rebusPLS <- function(data, pls_matrix, wscheme, nb_LV, nb_MV, tol = 1e-5, iter.p
   }
   
   #-----------------------------------------------------------------------------
-  # compute final quality index model
+  # final compute quality index model
   nb_endo = length(which(rowSums(pls_matrix) != 0))
   model_k = as.list(1:nb_class)
   com_model = matrix(NA, nrow = nb_LV, ncol = nb_class)
@@ -338,7 +338,7 @@ compute_CM = function(N, nk, mres, sres, loading, score, pls_matrix)
 }
 
 #-----------------------------------------------------------------------------
-# compute path coefficient (same in algo_lohmoller)
+# compute path coefficient
 #-----------------------------------------------------------------------------
 path_coeff = function(score, nb_LV, pls_matrix)
 {
